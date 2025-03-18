@@ -133,33 +133,20 @@
 
 // 5.
 
-    // let marks = 50;
+    // let marks = 30;
 
-    // if (marks > 75){
+    // if (marks >= 75){
     //     console.log("A")
 
-    // }else if (marks > 60){
+    // }else if (marks >= 60){
     //     console.log("B")
         
-    // }else if (marks > 45){
+    // }else if (marks >= 45){
     //     console.log("C")
 
-    // }else if (marks > 35){
+    // }else if (marks >= 35){
     //     console.log("D")
 
     // }else if (marks < 35){
     //     console.log("Fail")
     // }   
-
-// 6.
-
-    // let x = 1500;  
-    // let y = 350; 
-
-    // if (x < 2000 || x > 3000) {
-    //     console.log(x);
-    // }
-    // if (y > 100 && y < 500) {
-    //     console.log(y);
-    // }  
-
