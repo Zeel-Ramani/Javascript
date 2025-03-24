@@ -1,5 +1,5 @@
 // 1. Write a JAVASCRIPT Program to display the multiplication table of a given integer using a while loop.
-    
+
 //  let a="15";
 //     for(n=1; n<=10; n++){
 //         let b;
@@ -9,7 +9,7 @@
 
 
 // 2.Write a JAVASCRIPT program to calculate the factorial of a given number using a while loop.
-    
+
 // let f = 1;
 // let i = 5;
 
@@ -22,53 +22,45 @@
 
 // 3.Write a JAVASCRIPT Program to find the Armstrong number list of a given number using a do while loop.
 
-// let num = 500, i = 1;
+// let n = 153; s = 0;
+// let d = n;
 
-// do {
-//     let sum = 0, temp = i, digits = 0, n = i;
+// while (n != 0) {
+//     let rem = (n) % 10;
+//     s = 10 * (s) + rem
+//     n = Math.floor(n / 10);
+// }
+// console.log(s);
 
-//     do { digits++; n = (n - n % 10) / 10; } while (n);
-
-//     do {
-//         let d = temp % 10, p = 1, j = digits;
-//         do { p *= d; j--; } while (j);
-//         sum += p;
-//         temp = (temp - temp % 10) / 10;
-//     } while (temp);
-
-//     if (sum === i) console.log(i);
-
-//     i++;
-// } while (i <= num);
+// if (d == s) {
+//     console.log("number is Armstrong");
+// } else {
+//     console.log("number is not Armstrong");
+// }
 
 
 // 4.Write a JAVASCRIPT Program to find the Palindrome number list of a given number using a while loop.
 
-// let l = 150;  
-// let n = 1;
+// let n = 151; s = 0;
+// let d = n;
 
-// while (n <= l) {
-//     let o = n;
-//     let r = 0;
-//     let t = n;
+// while (n != 0) {
+//     let rem = (n) % 10;
+//     s = 10*(s)+rem;
+//     n = Math.floor(n / 10);
+// }
+// console.log(s);
 
-//     while (t > 0) {
-//         let d = t % 10;
-//         r = r * 10 + d;
-//         t = (t - (t % 10)) / 10;  
-//     }
-
-//     if (o === r) {
-//         console.log(n);
-//     }
-
-//     n++;
+// if (d == s) {
+//     console.log("number is Palindrome");
+// } else {
+//     console.log("number is not Palindrome");
 // }
 
 
 // 5.Write a JAVASCRIPT program to Calculate the Fibonacci Series of a given number using a while loop.
 
-// let n = 10; 
+// let n = 10;
 // let a = 0, b = 1, x, i = 1;
 
 // while (i <= n) {
@@ -107,7 +99,7 @@
 //     console.log(i);
 //   }
 //   i++;
-// } while (i <= 100);     
+// } while (i <= 100);
 
 
 // 8. Write a JAVASCRIPT program that display 1-2-3-4-5-6-7-8-9-10 on one line using a for loop. There will be no hyphen(-) at starting and ending porition.
