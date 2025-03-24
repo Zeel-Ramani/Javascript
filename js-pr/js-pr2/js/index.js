@@ -1,5 +1,4 @@
 // 1. Enter Electricity UNIT and Calculate amount to pay.
-
 // let u = 220;
 // let p1;
 // let p2;
@@ -29,6 +28,7 @@
 //     fb1=(p4)+(pp)
 //     console.log("bill",fb1)
 // }
+
 
 // 2. Write a JAVASCRIPT Program to print season according user input using switch case. 
 
@@ -122,7 +122,7 @@
     // let age = 66;
 
     // if(age <= 12){
-    //     console.log("children");
+    //     console.log("child");
 
     // }else if(age >= 13 && age <= 25){
     //     console.log("young");
