@@ -22,28 +22,24 @@
 
 // 3.Write a JAVASCRIPT Program to find the Armstrong number list of a given number using a do while loop.
 
-// let limit = 20;
-// let num = 1;
+// let num = 500, i = 1;
 
-// if (limit > 0) {
-//     console.log(`Armstrong numbers up to ${limit}:`);
+// do {
+//     let sum = 0, temp = i, digits = 0, n = i;
+
+//     do { digits++; n = (n - n % 10) / 10; } while (n);
 
 //     do {
-//         let temp = num, sum = 0, digits = ('' + num).length;
+//         let d = temp % 10, p = 1, j = digits;
+//         do { p *= d; j--; } while (j);
+//         sum += p;
+//         temp = (temp - temp % 10) / 10;
+//     } while (temp);
 
-//         while (temp) {
-//             let digit = temp % 10, power = 1, exp = digits;
-//             while (exp--) power *= digit;
-//             sum += power;
-//             temp = ~~(temp / 10);
-//         }
+//     if (sum === i) console.log(i);
 
-//         if (sum === num) console.log(num);
-//         num++;
-//     } while (num <= limit);
-// } else {
-//     console.log("Invalid number.");
-// }
+//     i++;
+// } while (i <= num);
 
 
 // 4.Write a JAVASCRIPT Program to find the Palindrome number list of a given number using a while loop.
@@ -72,21 +68,15 @@
 
 // 5.Write a JAVASCRIPT program to Calculate the Fibonacci Series of a given number using a while loop.
 
-// let t = 10;
+// let n = 10; 
+// let a = 0, b = 1, x, i = 1;
 
-// let a = 0, b = 1, n;
-// let c = 0;
-
-// console.log(`Fibonacci series with terms:`);
-
-// while (c < t) {
+// while (i <= n) {
 //     console.log(a);
-
-//     n = a + b;
+//     x = a + b;
 //     a = b;
-//     b = n;
-
-//     c++;
+//     b = x;
+//     i++;
 // }
 
 
