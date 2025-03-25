@@ -132,5 +132,4 @@
 
     // }else (age >= 64){
     //     console.log("senior");
-    // }`
-    
+    // }
