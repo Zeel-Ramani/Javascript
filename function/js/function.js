@@ -82,3 +82,106 @@
 //             break;
 //     }
 // }
+
+
+// function num(a) {
+//     if(a < 10){
+//         console.log("inside", a);
+//         num(++a);
+//     }
+//     console.log("outside", a);
+    
+// }
+
+// num(1)
+
+// function factorial(n) {
+//     if (n == 0) {
+//       return 1;
+//     } else {
+//       return n * factorial(n - 1);
+//     }
+//   }
+  
+//   console.log(factorial(5));
+  
+  // function pattern(n) {
+  //   for (let i = 1; i <= n; i++) {
+  //     for (let j = 1; j <= i; j++) {
+  //       console.log(j);
+        
+  //     }
+  //     console.log("\n");
+      
+      
+  //   }
+  // }
+  
+  // pattern(5);
+
+  // function printOddNumbers(n) {
+  //   // Loop from 1 to n
+  //    if (n === 0) {
+  //   return 1;
+  // } else {
+  //   // Recursive case: multiply n by the factorial of (n - 1)
+  //   return n * factorial(n - 1);
+  // }
+  //   }
+  // }
+  
+  // // Get input from the user
+  // const n = parseInt(prompt("Enter a number:"));
+
+
+  
+  // function factorial(n) {
+  //   if (n == 0) {
+  //     return 1;
+  //   } else {
+  //     return n * factorial(n - 1);
+  //   }
+  // }
+  // console.log(factorial(7));
+
+  // function fibonacci(n) {
+  //   let s = 10;
+  //   let a = 0, b = 1, x, i = 1;
+    
+  //   while (i <= n) {
+  //       console.log(a);
+  //       x = a + b;
+  //       a = b;
+  //       b = x;
+  //       i++;
+  //   }
+  // }
+
+  // fibonacci(15);
+
+
+  // let a = function() {
+  //   console.log("Hello World");
+  // }
+
+  // a();
+
+
+  // let a = () => {
+  //   console.log("Hello World");
+  // }
+
+  // a();
+
+// function outside(a , b) {
+//   console.log("outside", a + b);
+
+//   function inside(b , c) {
+//     console.log("inside", b !== c);
+//   }
+//   return inside;
+// }
+
+// outside(15 , 20)(10 , 20)
+
+function
