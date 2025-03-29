@@ -9,7 +9,7 @@
 // output => good morning
 
 
-// 2.  Write a JAVASCRIPT Program to find Circle area (area = pi*r*r) using return type with argument function.
+// 2. Write a JAVASCRIPT Program to find Circle area (area = pi*r*r) using return type with argument function.
 
 // function area(e){
 //     let pi = 3.14;
@@ -48,14 +48,15 @@
 
 // 5. Write a JAVASCRIPT Program to find ans of ((b*b)(4*a*c))/(2*a) using return type with argument function.
 
-// function t(a, b, c){
-//     let ans = ((b*b) + (4*a*c)) / (2*a);
-//     return ans;    
-// }   
+// function t(a, b, c) {
+//     let ans = ((b * b) * (4 * a * c)) / (2 * a);
+//     return ans;
+// }
 
-// console.log(t(10, 30, 90));
+// console.log(t(10, 30, 20));
 
-// output => 225
+
+// output => 36000
 
 
 // 6. Write a JAVASCRIPT Program to find ans of (a*a)+(2*a*b)+(b*b) using return type with argument function.
