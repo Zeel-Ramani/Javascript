@@ -106,8 +106,10 @@
 // }
 
 // a(75);
+// a(30);
 
 // output => Odd
+// output => Even
 
 
 // 10. Write a JAVASCRIPT Program to swap a value Without third varible using with argument no return type.
