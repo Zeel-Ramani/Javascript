@@ -39,9 +39,9 @@
 // 3. Write a javascript program to print a maximum and minimum value of given array.(using function and logic)
 
 // function findMaxMin(arr) {
-//     if (Array.isArray(arr) || arr.length === 0) {
+//     if (!Array.isArray(arr) || arr.length === 0) {
 //     }
-    
+
 //     let max = arr[0];
 //     let min = arr[0];
     
@@ -57,7 +57,7 @@
 //     return { max, min };
 // }
 
-// console.log(findMaxMin([10, 20, 30, 40, 50])); // Output: { max: 50, min: 10 }
+// console.log(findMaxMin([10, 20, 30, 40, 50]));
 
 // Output: { max: 50, min: 10 }
 
@@ -66,17 +66,15 @@
 
 // let n="ramani";
 
-// console.log(n);
-// console.log(n.charCodeAt(0));
-// //output:97
-// console.log(n.charCodeAt(1));
-// //output:110
-// console.log(n.charCodeAt(2));
-// //output:105
-// console.log(n.charCodeAt(3));
-// //output:115
-// console.log(n.charCodeAt(4));
-// //output:104
+// let str = "ramani";
+// let asciiArray = [];
+
+// for (let i = 0; i < str.length; i++) {
+//     asciiArray.push(str.charCodeAt(i));
+// }
+
+// console.log("ASCII array:", asciiArray);
+
 
 
 // 5.Write a JavaScript program to remove negative values using the filter array function. numbers = [-23,-20,-17, -12, 5, 0, 1, 5, 12, 19, 20]; 
@@ -104,6 +102,33 @@
 // 7.Write a JavaScript program for sorting an array in ascending descending. numbers = [23,20,17, 12,5, 0, 1, 5, 12, 19, 20]; 
 // myColor = ["Red", "Green", "White", "Black"];
 
+// Number array
+// let numbers = [23, 20, 17, 12, 5, 0, 1, 5, 12, 19, 20];
+
+// // Sort numbers in ascending order
+// let ascendingNumbers = [...numbers].sort((a, b) => a - b);
+// console.log("Ascending Numbers:", ascendingNumbers);
+
+// // Sort numbers in descending order
+// let descendingNumbers = [...numbers].sort((a, b) => b - a);
+// console.log("Descending Numbers:", descendingNumbers);
+
+// // String array (colors)
+// let myColor = ["Red", "Green", "White", "Black"];
+
+// // Sort strings in ascending (A–Z)
+// let ascendingColors = [...myColor].sort();
+// console.log("Colors A-Z:", ascendingColors);
+
+// // Sort strings in descending (Z–A)
+// let descendingColors = [...myColor].sort().reverse();
+// console.log("Colors Z-A:", descendingColors);
+
+// Output:
+// Ascending Numbers: [0, 1, 5, 5, 12, 12, 17, 19, 20, 23]
+// Descending Numbers: [23, 20, 19, 17, 12, 12, 5, 5, 1, 0]
+// Colors A-Z: ["Black", "Green", "Red", "White"]
+// Colors Z-A: ["White", "Red", "Green", "Black"]
 
 
 // 8. Write a JavaScript program which filters out any string which is less than 8 characters. 
