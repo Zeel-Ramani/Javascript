@@ -187,7 +187,6 @@ let quotes = [
 
 let index = 0;
 
-// Show quote at current index
 function showQuote() {
 let current = quotes[index];
 document.getElementById("quote").textContent = current.quote;
@@ -196,17 +195,16 @@ document.getElementById("profession").textContent = current.profession;
 
 }
 
-// Next quote
 document.getElementById("nextBtn").addEventListener("click", function () {
 index = (index + 1) % quotes.length;
 showQuote();
+
 });
 
-// Previous quote
 document.getElementById("prevBtn").addEventListener("click", function () {
 index = (index - 1 + quotes.length) % quotes.length;
 showQuote();
+
 });
 
-// Show first quote on load
 showQuote();
