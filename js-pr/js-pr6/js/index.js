@@ -1,4 +1,4 @@
-let arr1 = [ 
+let array = [ 
 
     {
         "quote": "Be yourself; everyone else is already taken.",
@@ -189,7 +189,7 @@ let index=0;
 
 function next(){
     if(index<=0){
-        index=arr1.length-1;
+        index=array.length-1;
 }
 else{
     index++;
@@ -197,7 +197,7 @@ else{
 display(index);
 }
 function prev(){
-    if(index>=arr1.length-1){
+    if(index>=array.length-1){
         index=0;
     }
     else{
@@ -207,9 +207,9 @@ display(index);
 }
 
 function display(index){
-    index=Math.floor(Math.random()*arr1.length);
-    document.getElementById("quote").innerHTML=`"${arr1[index].quote}"`;
-document.getElementById("author").innerHTML=`-${arr1[index].author} (${arr1[index].profession})`;
+    index=Math.floor(Math.random()*array.length);
+    document.getElementById("quote").innerHTML=`"${array[index].quote}"`;
+document.getElementById("author").innerHTML=`-${array[index].author} (${array[index].profession})`;
 }
 
 next();
