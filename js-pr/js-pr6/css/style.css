@@ -40,7 +40,7 @@ body #nextBtn{
     font-size: 16px;
 }
 
-body .box{
+body .quotes{
     color: white;
     align-items: center;
     display: flex;
@@ -49,7 +49,7 @@ body .box{
     height: 100vh;
 }
 
-.contant{
+.quoteoutpot{
     width: 700px !important;
     text-align: center;
     color: black;

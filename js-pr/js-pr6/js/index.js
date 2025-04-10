@@ -1,4 +1,4 @@
-let quotes = [ 
+let arr1 = [ 
 
     {
         "quote": "Be yourself; everyone else is already taken.",
@@ -185,26 +185,31 @@ let quotes = [
 
 ];
 
-let index = 0;
+let index=0;
 
-function showQuote() {
-let current = quotes[index];
-document.getElementById("quote").textContent = current.quote;
-document.getElementById("author").textContent = current.author;
-document.getElementById("profession").textContent = current.profession;
-
+function next(){
+    if(index<=0){
+        index=arr1.length-1;
+}
+else{
+    index++;
+}
+display(index);
+}
+function prev(){
+    if(index>=arr1.length-1){
+        index=0;
+    }
+    else{
+        index--;
+    }
+display(index);
 }
 
-document.getElementById("nextBtn").addEventListener("click", function () {
-index = (index + 1) % quotes.length;
-showQuote();
+function display(index){
+    index=Math.floor(Math.random()*arr1.length);
+    document.getElementById("quote").innerHTML=`"${arr1[index].quote}"`;
+document.getElementById("author").innerHTML=`-${arr1[index].author} (${arr1[index].profession})`;
+}
 
-});
-
-document.getElementById("prevBtn").addEventListener("click", function () {
-index = (index - 1 + quotes.length) % quotes.length;
-showQuote();
-
-});
-
-showQuote();
+next();
