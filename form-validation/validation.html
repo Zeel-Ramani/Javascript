@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<body style="background-color: rgb(43, 104, 209);">
+
+    <div align="center">
+        <div style="background-color: white; display: inline-block; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 300px; margin-top: 50px;">
+            <h1>Form Validation</h1>
+        <form onsubmit="return validateForm()">
+            <label>First Name:</label>
+            <input type="text" id="firstname">
+            <span id="firstname-error" class="error" style="color: red;"></span>
+            <br><br>
+
+            <label>Last Name:</label>
+            <input type="text" id="lastname">
+            <span id="lastname-error" class="error" style="color: red;"></span>
+            <br><br>
+        
+            <label>Email:</label>
+            <input type="email" id="email">
+            <span id="email-error" class="error" style="color: red;"></span>
+            <br><br>
+        
+            <label>Password:</label>
+            <input type="password" id="password">
+            <span id="password-error" class="error" style="color: red;"></span>
+            <br><br>
+        
+            <label>Phone:</label>
+            <input type="number" id="phone">
+            <span id="phone-error" class="error" style="color: red;"></span>
+            <br><br>
+        
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+    </div>
+    
+    <script src="js/validation.js"></script>
+</body>
+</html>

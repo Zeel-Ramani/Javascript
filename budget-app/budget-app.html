@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #f0f0f0; font-family: Arial, sans-serif; margin: 0; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;"> 
+
+    <h1 style="text-align: center; margin-top: 20px; color: red; font-size: 40px; font-weight: bold;">Budget App</h1>
+    
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 20px; ">
+        <h2 style="margin-bottom: 10px; margin-top: 10px; font-size: 30px; font-weight: bold; color: green;">Income</h2>
+        <input type="number" id="income-input" placeholder="Enter your income" style="width: 200px; height: 30px; font-size: 16px; padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+        <button id="add-income" style="margin-left: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Add Income</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <h2 style="margin-bottom: 10px; margin-top: 10px; font-size: 30px; font-weight: bold; color: red;">Expenses</h2>
+        <input type="number" id="expense-input" placeholder="Enter your expense" style="width: 200px; height: 30px; font-size: 16px; padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+        <button id="add-expense" style="margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Add Expense</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <h2 style="margin-bottom: 10px; margin-top: 10px; font-size: 30px; font-weight: bold; color: blue;">Balance</h2>
+        <p id="balance" style="font-size: 30px; font-weight: bold; color: blue; margin-top: 10px; margin-bottom: 10px;">0</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <h2 style="margin-bottom: 10px; margin-top: 10px; font-size: 30px; font-weight: bold; color: green;">Budget</h2>
+        <p id="budget" style="font-size: 30px; font-weight: bold; color: green; margin-top: 10px; margin-bottom: 10px;">0</p>
+    </div>
+
+    <script src="js/budget-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body style="text-align: center; background-color: #f0f0f0; font-family: Arial, sans-serif; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin: 20px auto; width: 700px; border: 1px solid #ccc; border-radius: 10px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    
+    <div>
+        <h1 style="text-align: center; color: #333; margin-bottom: 20px; font-size: 24px; font-weight: bold;">Currency Converter</h1>
+        <form id="currency-form">
+
+            <input type="number" id="amount" placeholder="Amount" style="margin-right: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; width: 150px;"/>
+
+            <select id="from-currency" style="margin-right: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; width: 150px;">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+                <option value="AUD">AUD</option>
+            </select>
+
+            <select id="to-currency" style="margin-right: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; width: 150px;">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>    
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+                <option value="AUD">AUD</option>
+            </select>
+
+            <button type="submit" style=" padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Convert</button>
+            
+        </form>
+        <div id="result" style="margin-top: 20px; font-size: 18px;"></div>
+    </div>
+
+    <script src="js/currency-converter.js"></script>
+</body>
+</html>

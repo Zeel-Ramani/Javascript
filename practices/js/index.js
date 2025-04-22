@@ -182,215 +182,286 @@
 // }    
 
 
-let quotes = [ 
+// let quotes = [ 
 
-        {
-            "quote": "Be yourself; everyone else is already taken.",
-            "author": "Oscar Wilde",
-            "profession": "Irish poet",
-            "topics": [
-                "Inspirational",
-                "Advice",
-                "Humor"
-            ]
-        },
-        {
-            "quote": "To live is the rarest thing in the world. Most people exist, that is all.",
-            "author": "Oscar Wilde",
-            "profession": "Irish poet",
-            "topics": [
-                "Philosophy",
-                "Humor"
-            ]
-        },
-        {
-            "quote": "True friends stab you in the front.",
-            "author": "Oscar Wilde",
-            "profession": "Irish poet",
-            "topics": [
-                "Philosophy",
-                "People"
-            ]
-        },
-        {
-            "quote": "Women are made to be Loved, not understood.",
-            "author": "Oscar Wilde",
-            "profession": "Irish poet",
-            "topics": [
-                "Philosophy",
-                "Humor"
-            ]
-        },
-        {
-            "quote": "Be the change that you wish to see in the world.",
-            "author": "Mahatma Gandhi",
-            "profession": "Indian leader",
-            "topics": [
-                "Inspirational",
-                "Philosophy",
-                "Advice"
-            ]
-        },
-        {
-            "quote": "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-            "author": "Mahatma Gandhi",
-            "profession": "Indian leader",
-            "topics": [
-                "Inspirational",
-                "Life",
-                "Advice"
-            ]
-        },
-        {
-            "quote": "No one can make you feel inferior without your consent.",
-            "author": "Eleanor Roosevelt",
-            "profession": "Former First Lady of the United States",
-            "topics": [
-                "Wisdom"
-            ]
-        },
-        {
-            "quote": "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
-            "author": "Eleanor Roosevelt",
-            "profession": "Former First Lady of the United States",
-            "topics": [
-                "Wisdom",
-                "People"
-            ]
-        },
-        {
-            "quote": "Do what you feel in your heart to be right - for you'll be criticized anyway.",
-            "author": "Eleanor Roosevelt",
-            "profession": "Former First Lady of the United States",
-            "topics": [
-                "Wisdom",
-                "Advice"
-            ]
-        },
-        {
-            "quote": "Do one thing every day that scares you.",
-            "author": "Eleanor Roosevelt",
-            "profession": "Former First Lady of the United States",
-            "topics": [
-                "Wisdom",
-                "Life"
-            ]
-        },
-        {
-            "quote": "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate; only love can do that.",
-            "author": "Martin Luther King",
-            "profession": "American minister",
-            "topics": [
-                "Inspirational",
-                "Wisdom",
-                "Love"
-            ]
-        },
-        {
-            "quote": "Our lives begin to end the day we become silent about things that matter.",
-            "author": "Martin Luther King",
-            "profession": "American minister",
-            "topics": [
-                "Inspirational",
-                "Life"
-            ]
-        },
-        {
-            "quote": "In the end, we will remember not the words of our enemies, but the silence of our friends.",
-            "author": "Martin Luther King",
-            "profession": "American minister",
-            "topics": [
-                "People",
-                "Life"
-            ]
-        },
-        {
-            "quote": "Injustice anywhere is a threat to justice everywhere.",
-            "author": "Martin Luther King",
-            "profession": "American minister",
-            "topics": [
-                "Wisdom"
-            ]
-        },
-        {
-            "quote": "The time is always right to do what is right.",
-            "author": "Martin Luther King",
-            "profession": "American minister",
-            "topics": [
-                "Inspirational",
-                "Wisdom"
-            ]
-        },
-        {
-            "quote": "Life's most persistent and urgent question is, 'What are you doing for others?",
-            "author": "Martin Luther King",
-            "profession": "American minister",
-            "topics": [
-                "Inspirational",
-                "Life",
-                "People"
-            ]
-        },
-        {
-            "quote": "Weak people revenge. Strong people forgive. Intelligent People Ignore.",
-            "author": "Albert Einstein",
-            "profession": "Theoretical physicist",
-            "topics": [
-                "Inspirational",
-                "Life"
-            ]
-        },
-        {
-            "quote": "I have not failed. I've just found 10,000 ways that won't work.",
-            "author": "Thomas A. Edison",
-            "profession": "American inventor",
-            "topics": [
-                "Inspirational"
-            ]
-        },
-        {
-            "quote": "Genius is one percent inspiration and ninety-nine percent perspiration.",
-            "author": "Thomas A. Edison",
-            "profession": "American inventor",
-            "topics": [
-                "Inspirational",
-                "Wisdom"
-            ]
-        },
-        {
-            "quote": "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
-            "author": "Thomas A. Edison",
-            "profession": "American inventor",
-            "topics": [
-                "Inspirational",
-                "Advice"
-            ]
-        },    
+//         {
+//             "quote": "Be yourself; everyone else is already taken.",
+//             "author": "Oscar Wilde",
+//             "profession": "Irish poet",
+//             "topics": [
+//                 "Inspirational",
+//                 "Advice",
+//                 "Humor"
+//             ]
+//         },
+//         {
+//             "quote": "To live is the rarest thing in the world. Most people exist, that is all.",
+//             "author": "Oscar Wilde",
+//             "profession": "Irish poet",
+//             "topics": [
+//                 "Philosophy",
+//                 "Humor"
+//             ]
+//         },
+//         {
+//             "quote": "True friends stab you in the front.",
+//             "author": "Oscar Wilde",
+//             "profession": "Irish poet",
+//             "topics": [
+//                 "Philosophy",
+//                 "People"
+//             ]
+//         },
+//         {
+//             "quote": "Women are made to be Loved, not understood.",
+//             "author": "Oscar Wilde",
+//             "profession": "Irish poet",
+//             "topics": [
+//                 "Philosophy",
+//                 "Humor"
+//             ]
+//         },
+//         {
+//             "quote": "Be the change that you wish to see in the world.",
+//             "author": "Mahatma Gandhi",
+//             "profession": "Indian leader",
+//             "topics": [
+//                 "Inspirational",
+//                 "Philosophy",
+//                 "Advice"
+//             ]
+//         },
+//         {
+//             "quote": "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+//             "author": "Mahatma Gandhi",
+//             "profession": "Indian leader",
+//             "topics": [
+//                 "Inspirational",
+//                 "Life",
+//                 "Advice"
+//             ]
+//         },
+//         {
+//             "quote": "No one can make you feel inferior without your consent.",
+//             "author": "Eleanor Roosevelt",
+//             "profession": "Former First Lady of the United States",
+//             "topics": [
+//                 "Wisdom"
+//             ]
+//         },
+//         {
+//             "quote": "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
+//             "author": "Eleanor Roosevelt",
+//             "profession": "Former First Lady of the United States",
+//             "topics": [
+//                 "Wisdom",
+//                 "People"
+//             ]
+//         },
+//         {
+//             "quote": "Do what you feel in your heart to be right - for you'll be criticized anyway.",
+//             "author": "Eleanor Roosevelt",
+//             "profession": "Former First Lady of the United States",
+//             "topics": [
+//                 "Wisdom",
+//                 "Advice"
+//             ]
+//         },
+//         {
+//             "quote": "Do one thing every day that scares you.",
+//             "author": "Eleanor Roosevelt",
+//             "profession": "Former First Lady of the United States",
+//             "topics": [
+//                 "Wisdom",
+//                 "Life"
+//             ]
+//         },
+//         {
+//             "quote": "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate; only love can do that.",
+//             "author": "Martin Luther King",
+//             "profession": "American minister",
+//             "topics": [
+//                 "Inspirational",
+//                 "Wisdom",
+//                 "Love"
+//             ]
+//         },
+//         {
+//             "quote": "Our lives begin to end the day we become silent about things that matter.",
+//             "author": "Martin Luther King",
+//             "profession": "American minister",
+//             "topics": [
+//                 "Inspirational",
+//                 "Life"
+//             ]
+//         },
+//         {
+//             "quote": "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+//             "author": "Martin Luther King",
+//             "profession": "American minister",
+//             "topics": [
+//                 "People",
+//                 "Life"
+//             ]
+//         },
+//         {
+//             "quote": "Injustice anywhere is a threat to justice everywhere.",
+//             "author": "Martin Luther King",
+//             "profession": "American minister",
+//             "topics": [
+//                 "Wisdom"
+//             ]
+//         },
+//         {
+//             "quote": "The time is always right to do what is right.",
+//             "author": "Martin Luther King",
+//             "profession": "American minister",
+//             "topics": [
+//                 "Inspirational",
+//                 "Wisdom"
+//             ]
+//         },
+//         {
+//             "quote": "Life's most persistent and urgent question is, 'What are you doing for others?",
+//             "author": "Martin Luther King",
+//             "profession": "American minister",
+//             "topics": [
+//                 "Inspirational",
+//                 "Life",
+//                 "People"
+//             ]
+//         },
+//         {
+//             "quote": "Weak people revenge. Strong people forgive. Intelligent People Ignore.",
+//             "author": "Albert Einstein",
+//             "profession": "Theoretical physicist",
+//             "topics": [
+//                 "Inspirational",
+//                 "Life"
+//             ]
+//         },
+//         {
+//             "quote": "I have not failed. I've just found 10,000 ways that won't work.",
+//             "author": "Thomas A. Edison",
+//             "profession": "American inventor",
+//             "topics": [
+//                 "Inspirational"
+//             ]
+//         },
+//         {
+//             "quote": "Genius is one percent inspiration and ninety-nine percent perspiration.",
+//             "author": "Thomas A. Edison",
+//             "profession": "American inventor",
+//             "topics": [
+//                 "Inspirational",
+//                 "Wisdom"
+//             ]
+//         },
+//         {
+//             "quote": "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+//             "author": "Thomas A. Edison",
+//             "profession": "American inventor",
+//             "topics": [
+//                 "Inspirational",
+//                 "Advice"
+//             ]
+//         },    
 
- ];
+//  ];
 
-let index = 0;
+// let index = 0;
 
-// Show quote at current index
-function showQuote() {
-    let current = quotes[index];
-    document.getElementById("quote").textContent = current.quote;
-    document.getElementById("author").textContent = current.author;
-    document.getElementById("profession").textContent = current.profession;
+// // Show quote at current index
+// function showQuote() {
+//     let current = quotes[index];
+//     document.getElementById("quote").textContent = current.quote;
+//     document.getElementById("author").textContent = current.author;
+//     document.getElementById("profession").textContent = current.profession;
    
+// }
+
+// // Next quote
+// document.getElementById("nextBtn").addEventListener("click", function () {
+//     index = (index + 1) % quotes.length;
+//     showQuote();
+// });
+
+// // Previous quote
+// document.getElementById("prevBtn").addEventListener("click", function () {
+//     index = (index - 1 + quotes.length) % quotes.length;
+//     showQuote();
+// });
+
+// // Show first quote on load
+// showQuote();
+
+
+// document.getElementById("data").addEventListener("click", function(){
+//     console.log("hello")
+// })
+
+
+// Constructor
+
+// class Person {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     greet() {
+//         console.log("Hello, my name is ", this.name);
+//     }
+// }
+
+// let person1 = new Person("zeel");
+// person1.greet();
+
+// budget app
+
+let budget = 0;
+let expenses = [];
+
+function addExpense(amount) {
+    budget -= amount;
+    expenses.push(amount);
 }
-
-// Next quote
-document.getElementById("nextBtn").addEventListener("click", function () {
-    index = (index + 1) % quotes.length;
-    showQuote();
-});
-
-// Previous quote
-document.getElementById("prevBtn").addEventListener("click", function () {
-    index = (index - 1 + quotes.length) % quotes.length;
-    showQuote();
-});
-
-// Show first quote on load
-showQuote();
+function getBudget() {
+    return budget;
+}
+function getExpenses() {
+    return expenses;
+}
+function getTotalExpenses() {
+    let total = 0;
+    for (let i = 0; i < expenses.length; i++) {
+        total += expenses[i];
+    }
+    return total;
+}
+function getRemainingBudget() {
+    return budget;    
+}
+function setBudget(amount) {
+    budget = amount;
+}
+function resetBudget() { 
+    budget = 0;
+    expenses = [];
+}
+function getExpenseCount() {
+    return expenses.length;
+}
+function getAverageExpense() {
+    if (expenses.length === 0) {
+        return 0;
+    }
+    let total = 0;
+    for (let i = 0; i < expenses.length; i++) {
+        total += expenses[i];
+    }
+    return total / expenses.length;
+}
+function getHighestExpense() {
+    if (expenses.length === 0) {
+        return 0;
+    }    
