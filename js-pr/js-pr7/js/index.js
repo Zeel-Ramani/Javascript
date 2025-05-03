@@ -90,7 +90,6 @@
 //     }
 // }
 
-// // Example usage
 // let shape = new Shape();
 
 // console.log(`Rectangle Area: ${shape.rectangle(6, 4)}`);
