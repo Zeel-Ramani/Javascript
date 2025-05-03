@@ -1,157 +1,149 @@
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+box-sizing: border-box;
+}
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
-    min-height: 100vh;
-    padding: 40px;
-    margin: 0;
-    color: #fff;
-  }
-  
-  h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  
-  input, button {
-    padding: 12px 16px;
-    margin: 8px 5px;
-    border-radius: 10px;
-    border: none;
-    font-size: 14px;
-    outline: none;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 100%;
-  }
-  
-  input::placeholder {
-    color: #ccc;
-  }
+margin: 0;
+padding: 40px;
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg, #fceabb, #f8b500);
+min-height: 100vh;
+}
 
+.container {
+max-width: 1320px;
+margin: auto;
+background: white;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
 
-  button {
-    background: rgba(0, 255, 164, 0.2);
-    border: 1px solid #00ffa4;
-    color: #00ffa4;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  button:hover {
-    background: #00ffa4;
-    color: #000;
-  }
-  
-  .product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-  }
-  
-  .product-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 20px;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .product-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, #00ffa4, #00f0ff);
-    opacity: 0.1;
-    transform: rotate(45deg);
-  }
-  
-  .product-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .product-card h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .product-card p {
-    font-size: 16px;
-    color: #ccc;
-    margin-bottom: 10px;
-  }
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-  }
-  
-  .modal-content {
-    background-color: #222;
-    margin: 10% auto;
-    padding: 20px 30px;
-    border-radius: 16px;
-    width: 300px;
-    color: #fff;
-    border: 1px solid #555;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content input {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .modal-content button {
-    margin-top: 10px;
-    background-color: #00ffa4;
-    color: #000;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .close {
-    float: right;
-    font-size: 22px;
-    cursor: pointer;
-  }
+h2 {
+text-align: center;
+margin-bottom: 30px;
+font-size: 28px;
+color: #333;
+}
 
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
+.form-group {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 16px;
+margin-bottom: 20px;
+}
+
+input {
+padding: 12px 15px;
+border: 2px solid #f8b500;
+border-radius: 10px;
+font-size: 15px;
+transition: border 0.3s;
+}
+
+input:focus {
+border-color: #ff6600;
+outline: none;
+}
+
+.total {
+font-weight: 600;
+font-size: 17px;
+color: #ff6600;
+margin: 10px 0;
+}
+
+button {
+padding: 12px 20px;
+font-size: 15px;
+border: none;
+border-radius: 10px;
+color: white;
+cursor: pointer;
+transition: all 0.3s ease;
+margin-top: 10px;
+}
+
+#submitBtn {
+background: linear-gradient(to right, #ff512f, #dd2476);
+}
+
+#submitBtn.btn-update {
+background: linear-gradient(to right, #00b09b, #96c93d);
+}
+
+#submitBtn:hover {
+transform: scale(1.05);
+}
+
+.btn-edit {
+background: #17a2b8;
+margin-right: 5px;
+}
+
+.btn-edit:hover {
+background: #138496;
+}
+
+.btn-delete {
+background: #dc3545;
+}
+
+.btn-delete:hover {
+background: #c82333;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 30px;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+background-color: #ff6600;
+color: white;
+padding: 14px;
+font-size: 16px;
+}
+
+td {
+padding: 14px;
+text-align: center;
+background-color: #fffbea;
+font-size: 15px;
+}
+
+tr:nth-child(even) td {
+background-color: #fff3d4;
+}
+
+@media (max-width: 600px) {
+.form-group {
+  grid-template-columns: 1fr;
+}
+
+table, thead, tbody, th, td, tr {
+  display: block;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  padding-left: 50%;
+  position: relative;
+}
+
+td::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-weight: bold;
+}
+}

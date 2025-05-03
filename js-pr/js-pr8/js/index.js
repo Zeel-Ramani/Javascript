@@ -1,123 +1,89 @@
 let products = JSON.parse(localStorage.getItem("products")) || [];
+let editIndex = "";
 
-function saveToStorage() {
-    localStorage.setItem("products", JSON.stringify(products));
+function updateTotal() {
+  let price = parseFloat(document.getElementById("price").value) || 0;
+  let qty = parseFloat(document.getElementById("qty").value) || 0;
+  let total = price * qty;
+  document.getElementById("total").textContent = total.toFixed(2);
 }
 
-function renderProducts() {
-    let productList = document.getElementById("productList");
-    productList.innerHTML = ""; // Clear before rendering
-
-    products.forEach((product, index) => {
-        productList.innerHTML += `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" width="100" />
-                <h2>${product.name}</h2>
-                <p>Price: ₹${product.price}</p>
-                <p>Quantity: ${product.quantity}</p>
-                <p>Total: ₹${product.total}</p>
-                <p>Category: ${product.category}</p>
-                <button onclick="openEditModal(${index})">Edit</button>
-                <button onclick="deleteProduct(${index})">Delete</button>
-            </div>
-        `;
-    });
+function render() {
+  let list = document.getElementById("productList");
+  list.innerHTML = "";
+  products.forEach((p, i) => {
+    let total = p.price * p.qty;
+    list.innerHTML += `
+      <tr>
+        <td>${p.name}</td>
+        <td>₹${p.price}</td>
+        <td>${p.qty}</td>
+        <td>₹${total.toFixed(2)}</td>
+        <td>${p.category}</td>
+        <td>
+          <button class="btn-edit" onclick="editProduct(${i})">Edit</button>
+          <button class="btn-delete" onclick="deleteProduct(${i})">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+  localStorage.setItem("products", JSON.stringify(products));
 }
 
-function calculateTotal() {
-    let price = parseFloat(document.getElementById("productPrice").value) || 0;
-    let quantity = parseInt(document.getElementById("productQuantity").value) || 0;
-    let total = price * quantity;
-    document.getElementById("productTotal").value = total.toFixed(2);
-}
+function submitProduct() {
+  let name = document.getElementById("name").value.trim();
+  let price = parseFloat(document.getElementById("price").value);
+  let qty = parseFloat(document.getElementById("qty").value);
+  let category = document.getElementById("category").value.trim();
 
-function addProduct() {
-    let name = document.getElementById("productName").value;
-    let price = parseFloat(document.getElementById("productPrice").value) || 0;
-    let quantity = parseInt(document.getElementById("productQuantity").value) || 0;
-    let category = document.getElementById("productCategory").value;
-    let image = document.getElementById("productImage").value;
-    let total = price * quantity;
+  if (!name || !price || !qty || !category) {
+    alert("Please fill all fields.");
+    return;
+  }
 
-    if (!name || !price || !quantity || !category || !image) {
-        alert("Please fill out all fields.");
-        return;
-    }
+  let newProduct = { name, price, qty, category };
 
-    let newProduct = {
-        name,
-        price,
-        quantity,
-        total: total.toFixed(2),
-        category,
-        image
-    };
-
+  if (editIndex === "") {
     products.push(newProduct);
-    saveToStorage();
-    renderProducts();
+  } else {
+    products[editIndex] = newProduct;
+    editIndex = "";
+    document.getElementById("submitBtn").textContent = "Add Product";
+    document.getElementById("submitBtn").className = "";
+  }
 
-    document.getElementById("productName").value = "";
-    document.getElementById("productPrice").value = "";
-    document.getElementById("productQuantity").value = "";
-    document.getElementById("productTotal").value = "";
-    document.getElementById("productCategory").value = "";
-    document.getElementById("productImage").value = "";
+  clearForm();
+  render();
 }
 
-function openEditModal(index) {
-    let product = products[index];
-    document.getElementById("editName").value = product.name;
-    document.getElementById("editPrice").value = product.price;
-    document.getElementById("editQuantity").value = product.quantity;
-    document.getElementById("editCategory").value = product.category;
-    document.getElementById("editImage").value = product.image;
-    document.getElementById("editTotal").value = product.total;
-
-    let modal = document.getElementById("editModal");
-    modal.style.display = "block";
-    modal.dataset.index = index;
-}
-
-function closeModal() {
-    let modal = document.getElementById("editModal");
-    modal.style.display = "none";
-}
-
-function saveEditedProduct() {
-    let index = document.getElementById("editModal").dataset.index;
-    let name = document.getElementById("editName").value;
-    let price = parseFloat(document.getElementById("editPrice").value) || 0;
-    let quantity = parseInt(document.getElementById("editQuantity").value) || 0;
-    let category = document.getElementById("editCategory").value;
-    let image = document.getElementById("editImage").value;
-    let total = price * quantity;
-
-    if (!name || !price || !quantity || !category || !image) {
-        alert("Please fill out all fields.");
-        return;
-    }
-
-    products[index] = {
-        name,
-        price,
-        quantity,
-        total: total.toFixed(2),
-        category,
-        image
-    };
-
-    saveToStorage();
-    renderProducts();
-    closeModal();
+function editProduct(index) {
+  let p = products[index];
+  document.getElementById("name").value = p.name;
+  document.getElementById("price").value = p.price;
+  document.getElementById("qty").value = p.qty;
+  document.getElementById("category").value = p.category;
+  updateTotal();
+  editIndex = index;
+  document.getElementById("submitBtn").textContent = "Update Product";
+  document.getElementById("submitBtn").className = "btn-update";
 }
 
 function deleteProduct(index) {
-    if (confirm("Are you sure you want to delete this product?")) {
-        products.splice(index, 1);
-        saveToStorage();
-        renderProducts();
-    }
+  if (confirm("Are you sure?")) {
+    products.splice(index, 1);
+    render();
+  }
 }
 
-renderProducts();
+function clearForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("qty").value = "";
+  document.getElementById("category").value = "";
+  document.getElementById("total").textContent = "0";
+  document.getElementById("submitBtn").textContent = "Add Product";
+  document.getElementById("submitBtn").className = "";
+  editIndex = "";
+}
+
+render();

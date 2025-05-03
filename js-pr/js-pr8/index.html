@@ -21,38 +21,28 @@
 </head>
 <body>
 
-     <div class="container">
-        <h2>Add Product</h2>
-        <form>
-            <input type="text" id="productName" placeholder="Product Name" /><br>
-            <input type="number" id="productPrice" placeholder="Product Price" oninput="calculateTotal()" /><br>
-            <input type="number" id="productQuantity" placeholder="Product Quantity" oninput="calculateTotal()" /><br>
-            <input type="text" id="productCategory" placeholder="Product Category" /><br>
-            <input type="text" id="productImage" placeholder="Product Image URL" /><br>
-            <input type="text" id="productTotal" placeholder="Total Price" readonly /><br>
-        </form>
-        <button onclick="addProduct()">Add Product</button>
-
-        <h2>All Products</h2>
-        <div class="product-container" id="productList"></div>
-
-        <!-- Edit Modal -->
-        <div id="editModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h3>Edit Product</h3>
-                <form>
-                    <input type="text" id="editName" placeholder="Product Name" />
-                    <input type="number" id="editPrice" placeholder="Product Price" />
-                    <input type="number" id="editQuantity" placeholder="Product Quantity" />
-                    <input type="text" id="editCategory" placeholder="Product Category" />
-                    <input type="text" id="editImage" placeholder="Product Image URL" />
-                    <input type="text" id="editTotal" placeholder="Total Price" readonly /><br>
-                    <button onclick="saveEditedProduct()">Save Changes</button>
-                </form>
-            </div>
+    <div class="container">
+        <h2>Product Management</h2>
+      
+        <div class="form-group">
+          <input id="name" placeholder="Product Name">
+          <input id="price" type="number" placeholder="Price" oninput="updateTotal()">
+          <input id="qty" type="number" placeholder="Quantity" oninput="updateTotal()">
+          <input id="category" placeholder="Category">
         </div>
-    </div>
+      
+        <div class="total">Total Price: $<span id="total">0</span></div>
+        <button id="submitBtn" onclick="submitProduct()">Add Product</button>
+      
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th><th>Price</th><th>Qty</th><th>Total</th><th>Category</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productList"></tbody>
+        </table>
+      </div>
 
     <script src="js/index.js"></script>
 </body>
