@@ -5,7 +5,7 @@ function saveToStorage() {
 }
 
 function renderProducts() {
-    const productList = document.getElementById("productList");
+    let productList = document.getElementById("productList");
     productList.innerHTML = ""; // Clear before rendering
 
     products.forEach((product, index) => {
@@ -25,26 +25,26 @@ function renderProducts() {
 }
 
 function calculateTotal() {
-    const price = parseFloat(document.getElementById("productPrice").value) || 0;
-    const quantity = parseInt(document.getElementById("productQuantity").value) || 0;
-    const total = price * quantity;
+    let price = parseFloat(document.getElementById("productPrice").value) || 0;
+    let quantity = parseInt(document.getElementById("productQuantity").value) || 0;
+    let total = price * quantity;
     document.getElementById("productTotal").value = total.toFixed(2);
 }
 
 function addProduct() {
-    const name = document.getElementById("productName").value;
-    const price = parseFloat(document.getElementById("productPrice").value) || 0;
-    const quantity = parseInt(document.getElementById("productQuantity").value) || 0;
-    const category = document.getElementById("productCategory").value;
-    const image = document.getElementById("productImage").value;
-    const total = price * quantity;
+    let name = document.getElementById("productName").value;
+    let price = parseFloat(document.getElementById("productPrice").value) || 0;
+    let quantity = parseInt(document.getElementById("productQuantity").value) || 0;
+    let category = document.getElementById("productCategory").value;
+    let image = document.getElementById("productImage").value;
+    let total = price * quantity;
 
     if (!name || !price || !quantity || !category || !image) {
         alert("Please fill out all fields.");
         return;
     }
 
-    const newProduct = {
+    let newProduct = {
         name,
         price,
         quantity,
@@ -57,7 +57,6 @@ function addProduct() {
     saveToStorage();
     renderProducts();
 
-    // Clear input fields
     document.getElementById("productName").value = "";
     document.getElementById("productPrice").value = "";
     document.getElementById("productQuantity").value = "";
@@ -67,7 +66,7 @@ function addProduct() {
 }
 
 function openEditModal(index) {
-    const product = products[index];
+    let product = products[index];
     document.getElementById("editName").value = product.name;
     document.getElementById("editPrice").value = product.price;
     document.getElementById("editQuantity").value = product.quantity;
@@ -75,24 +74,24 @@ function openEditModal(index) {
     document.getElementById("editImage").value = product.image;
     document.getElementById("editTotal").value = product.total;
 
-    const modal = document.getElementById("editModal");
+    let modal = document.getElementById("editModal");
     modal.style.display = "block";
     modal.dataset.index = index;
 }
 
 function closeModal() {
-    const modal = document.getElementById("editModal");
+    let modal = document.getElementById("editModal");
     modal.style.display = "none";
 }
 
 function saveEditedProduct() {
-    const index = document.getElementById("editModal").dataset.index;
-    const name = document.getElementById("editName").value;
-    const price = parseFloat(document.getElementById("editPrice").value) || 0;
-    const quantity = parseInt(document.getElementById("editQuantity").value) || 0;
-    const category = document.getElementById("editCategory").value;
-    const image = document.getElementById("editImage").value;
-    const total = price * quantity;
+    let index = document.getElementById("editModal").dataset.index;
+    let name = document.getElementById("editName").value;
+    let price = parseFloat(document.getElementById("editPrice").value) || 0;
+    let quantity = parseInt(document.getElementById("editQuantity").value) || 0;
+    let category = document.getElementById("editCategory").value;
+    let image = document.getElementById("editImage").value;
+    let total = price * quantity;
 
     if (!name || !price || !quantity || !category || !image) {
         alert("Please fill out all fields.");
@@ -121,5 +120,4 @@ function deleteProduct(index) {
     }
 }
 
-// Initial render
 renderProducts();
