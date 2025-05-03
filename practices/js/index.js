@@ -418,50 +418,201 @@
 
 // budget app
 
-let budget = 0;
-let expenses = [];
+// let budget = 0;
+// let expenses = [];
 
-function addExpense(amount) {
-    budget -= amount;
-    expenses.push(amount);
+// function addExpense(amount) {
+//     budget -= amount;
+//     expenses.push(amount);
+// }
+// function getBudget() {
+//     return budget;
+// }
+// function getExpenses() {
+//     return expenses;
+// }
+// function getTotalExpenses() {
+//     let total = 0;
+//     for (let i = 0; i < expenses.length; i++) {
+//         total += expenses[i];
+//     }
+//     return total;
+// }
+// function getRemainingBudget() {
+//     return budget;    
+// }
+// function setBudget(amount) {
+//     budget = amount;
+// }
+// function resetBudget() { 
+//     budget = 0;
+//     expenses = [];
+// }
+// function getExpenseCount() {
+//     return expenses.length;
+// }
+// function getAverageExpense() {
+//     if (expenses.length === 0) {
+//         return 0;
+//     }
+//     let total = 0;
+//     for (let i = 0; i < expenses.length; i++) {
+//         total += expenses[i];
+//     }
+//     return total / expenses.length;
+// }
+// function getHighestExpense() {
+//     if (expenses.length === 0) {
+//         return 0;
+//     }    
+
+
+// function getProducts() {
+//     const products = localStorage.getItem('products');
+//     return products ? JSON.parse(products) : [];
+//   }
+  
+//   function saveProducts(products) {
+//     localStorage.setItem('products', JSON.stringify(products));
+//   }
+  
+//   function addProduct() {
+//     const name = document.getElementById('productName').value.trim();
+//     const price = document.getElementById('productPrice').value.trim();
+  
+//     if (name && price) {
+//       const newProduct = { name, price };
+//       const products = getProducts();
+//       products.push(newProduct);
+//       saveProducts(products);
+//       displayProducts();
+//       document.getElementById('productName').value = '';
+//       document.getElementById('productPrice').value = '';
+//     } else {
+//       alert('Please enter both name and price.');
+//     }
+//   }
+  
+//   function displayProducts() {
+//     const products = getProducts();
+//     const container = document.getElementById('productList');
+//     container.innerHTML = '';
+//     products.forEach((product) => {
+//       const card = document.createElement('div');
+//       card.className = 'product-card';
+//       card.innerHTML = `
+//         <h3>${product.name}</h3>
+//         <p>Price: $${product.price}</p>
+//       `;
+//       container.appendChild(card);
+//     });
+//   }
+  
+//   // Initial load
+//   displayProducts();
+  
+// Utility functions for working with localStorage
+function getProducts() {
+  const products = localStorage.getItem('products');
+  return products ? JSON.parse(products) : [];
 }
-function getBudget() {
-    return budget;
+
+function saveProducts(products) {
+  localStorage.setItem('products', JSON.stringify(products));
 }
-function getExpenses() {
-    return expenses;
+
+// Function to add a new product
+function addProduct() {
+  const nameInput = document.getElementById('productName');
+  const priceInput = document.getElementById('productPrice');
+  const name = nameInput.value.trim();
+  const price = priceInput.value.trim();
+
+  if (!name || !price) {
+    alert('Please enter both a product name and price.');
+    return;
+  }
+
+  const products = getProducts();
+  const newProduct = { name, price };
+  products.push(newProduct);
+  saveProducts(products);
+  displayProducts();
+
+  // Clear input fields
+  nameInput.value = '';
+  priceInput.value = '';
 }
-function getTotalExpenses() {
-    let total = 0;
-    for (let i = 0; i < expenses.length; i++) {
-        total += expenses[i];
-    }
-    return total;
+
+// Function to display all products
+function displayProducts() {
+  const products = getProducts();
+  const container = document.getElementById('productList');
+  container.innerHTML = '';
+
+  products.forEach((product, index) => {
+    const productCard = document.createElement('div');
+    productCard.className = 'product-card';
+    productCard.innerHTML = `
+      <h3>${product.name}</h3>
+      <p>Price: $${product.price}</p>
+      <button onclick="openEditModal(${index})">Edit</button>
+      <button onclick="deleteProduct(${index})">Delete</button>
+    `;
+    container.appendChild(productCard);
+  });
 }
-function getRemainingBudget() {
-    return budget;    
+
+// Function to open the edit modal
+let editIndex = -1;
+function openEditModal(index) {
+  const product = getProducts()[index];
+  document.getElementById('editName').value = product.name;
+  document.getElementById('editPrice').value = product.price;
+  document.getElementById('editModal').style.display = 'block';
+  editIndex = index;
 }
-function setBudget(amount) {
-    budget = amount;
+
+// Function to close the edit modal
+function closeModal() {
+  document.getElementById('editModal').style.display = 'none';
+  editIndex = -1;
 }
-function resetBudget() { 
-    budget = 0;
-    expenses = [];
+
+// Function to save the edited product
+function saveEditedProduct() {
+  const name = document.getElementById('editName').value.trim();
+  const price = document.getElementById('editPrice').value.trim();
+
+  if (!name || !price) {
+    alert('Please enter both product name and price.');
+    return;
+  }
+
+  const products = getProducts();
+  products[editIndex] = { name, price };
+  saveProducts(products);
+  displayProducts();
+  closeModal();
 }
-function getExpenseCount() {
-    return expenses.length;
+
+// Function to delete a product
+function deleteProduct(index) {
+  const products = getProducts();
+  if (confirm('Are you sure you want to delete this product?')) {
+    products.splice(index, 1);
+    saveProducts(products);
+    displayProducts();
+  }
 }
-function getAverageExpense() {
-    if (expenses.length === 0) {
-        return 0;
-    }
-    let total = 0;
-    for (let i = 0; i < expenses.length; i++) {
-        total += expenses[i];
-    }
-    return total / expenses.length;
-}
-function getHighestExpense() {
-    if (expenses.length === 0) {
-        return 0;
-    }    
+
+// Display the products on page load
+window.onload = displayProducts;
+
+// Close the modal if clicked outside
+window.onclick = function(event) {
+  const modal = document.getElementById('editModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+};

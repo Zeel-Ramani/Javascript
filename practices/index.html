@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <!-- <style>
         * {
           box-sizing: border-box;
@@ -87,6 +88,144 @@
         }
     
       </style> -->
+
+      <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .product-list {
+            margin-top: 20px;
+        }
+    </style> -->
+
+    <style>
+      
+      /* General Body Styling */
+/* General Body Styling */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Product Form */
+.product-form input {
+  padding: 10px;
+  margin: 10px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.product-form button {
+  padding: 12px 20px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.product-form button:hover {
+  background-color: #0099cc;
+}
+
+/* Product List */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.product-card {
+  background-color: white;
+  width: 250px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: left;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.product-card p {
+  color: #666;
+  margin: 10px 0;
+}
+
+.product-card button {
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #ff5722;
+}
+
+/* Edit Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+
+    </style>
 </head>
 <body>
 
@@ -123,6 +262,39 @@
     </div> -->
 
     <!-- <button onclick="hello()" id="data">click now</button> -->
+
+    <!-- <h2>Add Product</h2>
+    <input type="text" id="productName" placeholder="Product Name" />
+    <input type="text" id="productPrice" placeholder="Product Price" />
+    <button onclick="addProduct()">Add Product</button>
+  
+    <h2>All Products</h2>
+    <div class="product-container" id="productList"></div> -->
+
+    <div class="container">
+      <h1>Product Manager</h1>
+  
+      <!-- Product Form -->
+      <div class="product-form">
+        <input type="text" id="productName" placeholder="Enter Product Name" />
+        <input type="text" id="productPrice" placeholder="Enter Product Price" />
+        <button onclick="addProduct()">Add Product</button>
+      </div>
+  
+      <!-- Product List -->
+      <div id="productList" class="product-list"></div>
+    </div>
+  
+    <!-- Edit Product Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Edit Product</h3>
+        <input type="text" id="editName" placeholder="Product Name" />
+        <input type="text" id="editPrice" placeholder="Product Price" />
+        <button onclick="saveEditedProduct()">Save Changes</button>
+      </div>
+    </div>
 
     <script src="js/index.js"></script>
 </body>

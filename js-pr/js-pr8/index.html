@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jspr8</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+     <div class="container">
+        <h2>Add Product</h2>
+        <form>
+            <input type="text" id="productName" placeholder="Product Name" /><br>
+            <input type="number" id="productPrice" placeholder="Product Price" oninput="calculateTotal()" /><br>
+            <input type="number" id="productQuantity" placeholder="Product Quantity" oninput="calculateTotal()" /><br>
+            <input type="text" id="productCategory" placeholder="Product Category" /><br>
+            <input type="text" id="productImage" placeholder="Product Image URL" /><br>
+            <input type="text" id="productTotal" placeholder="Total Price" readonly /><br>
+        </form>
+        <button onclick="addProduct()">Add Product</button>
+
+        <h2>All Products</h2>
+        <div class="product-container" id="productList"></div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Edit Product</h3>
+                <form>
+                    <input type="text" id="editName" placeholder="Product Name" />
+                    <input type="number" id="editPrice" placeholder="Product Price" />
+                    <input type="number" id="editQuantity" placeholder="Product Quantity" />
+                    <input type="text" id="editCategory" placeholder="Product Category" />
+                    <input type="text" id="editImage" placeholder="Product Image URL" />
+                    <input type="text" id="editTotal" placeholder="Total Price" readonly /><br>
+                    <button onclick="saveEditedProduct()">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
+
+
+    <script src="js/index.js"></script>
+</body>
+</html>
