@@ -3,51 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jspr8</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-</head>
-<body>
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Manager</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <h2>Product Management</h2>
-      
-        <div class="form-group">
-          <input id="name" placeholder="Product Name">
-          <input id="price" type="number" placeholder="Price" oninput="updateTotal()">
-          <input id="qty" type="number" placeholder="Quantity" oninput="updateTotal()">
-          <input id="category" placeholder="Category">
-        </div>
-      
-        <div class="total">Total Price: $<span id="total">0</span></div>
-        <button id="submitBtn" onclick="submitProduct()">Add Product</button>
-      
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th><th>Price</th><th>Qty</th><th>Total</th><th>Category</th><th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="productList"></tbody>
-        </table>
-      </div>
+<div class="cart-icon" onclick="toggleCart()">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+  <div class="cart-badge" id="cartBadge">0</div>
+</div>
 
-    <script src="js/index.js"></script>
-</body>
-</html>
+<div class="cart-panel" id="cartPanel">
+  <h3>Your Cart</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th><th>Qty</th><th>₹Total</th><th>Act</th>
+      </tr>
+    </thead>
+    <tbody id="cartTable"></tbody>
+  </table>
+  <div class="total-value" id="totalValue">Total: ₹0</div>
+</div>
 
+<div class="container">
+  <h2>Product Management</h2>
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Product Name">
+    <input type="number" id="price" placeholder="Price">
+    <input type="number" id="quantity" placeholder="Quantity">
+    <input type="text" id="category" placeholder="Category">
+</div>
+
+  <button class="action-btn" onclick="addOrUpdateProduct()">Add Product</button>
+
+  <div>
+    <h3 style="color:#38bdf8; text-align:center;">Product List</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th><th>Price</th><th>Qty</th><th>Total</th><th>Cat</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="productTable"></tbody>
+      </table>
+  </div>
 
     <script src="js/index.js"></script>
 </body>
