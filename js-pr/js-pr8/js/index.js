@@ -1,118 +1,139 @@
-let products = JSON.parse(localStorage.getItem('products')) || [];
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let editingCartIndex = null;
+let editIndex = null;
 
-  function saveToStorage() {
-    localStorage.setItem('products', JSON.stringify(products));
-    localStorage.setItem('cart', JSON.stringify(cart));
+function addOrUpdateProduct() {
+  let name = document.getElementById("name").value.trim();
+  let price = document.getElementById("price").value.trim();
+  let quantity = document.getElementById("quantity").value.trim();
+  let category = document.getElementById("category").value.trim();
+
+  if (!name || !price || !quantity || !category) {
+    alert("Please fill all fields");
+    return;
   }
 
-  function addOrUpdateProduct() {
-    let name = document.getElementById('name').value.trim();
-    let price = +document.getElementById('price').value;
-    let quantity = +document.getElementById('quantity').value;
-    let category = document.getElementById('category').value.trim();
-    let total = price * quantity;
+  let product = {
+    name: name,
+    price: parseFloat(price),
+    quantity: parseInt(quantity),
+    category: category,
+  };
 
-    if (!name || !price || !quantity) {
-      alert('Please fill all required fields.');
-      return;
-    }
+  let products = JSON.parse(localStorage.getItem("products")) || [];
 
-    let product = { name, price, quantity, category, total };
-
-    if (editingCartIndex !== null) {
-      cart[editingCartIndex] = product;
-      editingCartIndex = null;
-    } else {
-      products.push(product);
-    }
-
-    saveToStorage();
-    clearForm();
-    renderProducts();
-    renderCart();
+  if (editIndex !== null) {
+    products[editIndex] = product;
+    editIndex = null;
+  } else {
+    products.push(product);
   }
 
-  function clearForm() {
-    document.getElementById('name').value = '';
-    document.getElementById('price').value = '';
-    document.getElementById('quantity').value = '';
-    document.getElementById('category').value = '';
-  }
+  localStorage.setItem("products", JSON.stringify(products));
 
-  function renderProducts() {
-    let table = document.getElementById('productTable');
-    table.innerHTML = '';
-    products.forEach((p, i) => {
-      table.innerHTML += `
-        <tr>
-          <td>${p.name}</td>
-          <td>₹${p.price}</td>
-          <td>${p.quantity}</td>
-          <td>₹${p.total}</td>
-          <td>${p.category}</td>
-          <td><button class="btn-edit" onclick="addToCart(${i})">Add to Cart</button></td>
-        </tr>`;
-    });
-  }
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("quantity").value = "";
+  document.getElementById("category").value = "";
 
-  function renderCart() {
-    let table = document.getElementById('cartTable');
-    table.innerHTML = '';
-    let totalValue = 0;
-    cart.forEach((p, i) => {
-      totalValue += p.total;
-      table.innerHTML += `
-        <tr>
-          <td>${p.name}</td>
-          <td>${p.quantity}</td>
-          <td>₹${p.total}</td>
-          <td>
-            <button class="btn-edit" onclick="editCartItem(${i})">E</button>
-            <button class="btn-delete" onclick="deleteCartItem(${i})">D</button>
-          </td>
-        </tr>`;
-    });
+  displayProducts();
+}
 
-    document.getElementById('totalValue').textContent = `Total: ₹${totalValue}`;
-    document.getElementById('cartBadge').textContent = cart.length;
-  }
+function displayProducts() {
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  let table = document.getElementById("productTable");
+  table.innerHTML = "";
 
-  function addToCart(index) {
-    cart.push(products[index]);
-    products.splice(index, 1);
-    saveToStorage();
-    renderProducts();
-    renderCart();
-  }
+  products.forEach((p, index) => {
+    let row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${p.name}</td>
+      <td>₹${p.price}</td>
+      <td>${p.quantity}</td>
+      <td>₹${p.price * p.quantity}</td>
+      <td>${p.category}</td>
+      <td>
+        <button onclick="deleteProduct(${index})" id="addToCart">Delete</button>
+        <button onclick="addToCart(${index})" id="addToCart">Add to Cart</button>
+      </td>
+    `;
+    table.appendChild(row);
+  });
+}
 
-  function editCartItem(index) {
-    let p = cart[index];
-    document.getElementById('name').value = p.name;
-    document.getElementById('price').value = p.price;
-    document.getElementById('quantity').value = p.quantity;
-    document.getElementById('category').value = p.category;
-    editingCartIndex = index;
-  }
+function editProduct(index) {
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  let product = products[index];
 
-  function deleteCartItem(index) {
-    let productToDelete = cart[index];
-    cart.splice(index, 1);
-    products = products.filter(p =>
-      !(p.name === productToDelete.name &&
-        p.price === productToDelete.price &&
-        p.quantity === productToDelete.quantity &&
-        p.category === productToDelete.category)
-    );
-    saveToStorage();
-    renderCart();
-    renderProducts();
-  }
+  document.getElementById("name").value = product.name;
+  document.getElementById("price").value = product.price;
+  document.getElementById("quantity").value = product.quantity;
+  document.getElementById("category").value = product.category;
 
-  function toggleCart() {
-    document.getElementById('cartPanel').classList.toggle('open');
-  }
-  
-  renderProducts();
-  renderCart();
+  editIndex = index;
+}
+
+function deleteProduct(index) {
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  products.splice(index, 1);
+  localStorage.setItem("products", JSON.stringify(products));
+  displayProducts();
+}
+
+function addToCart(index) {
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  let product = products[index];
+
+  let cartTable = document.getElementById("cartTable");
+  let cartBadge = document.getElementById("cartBadge");
+
+  let row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${product.name}</td>
+    <td>${product.quantity}</td>
+    <td>₹${product.price * product.quantity}</td>
+    <td>
+    <button onclick="editProduct(${index})" id="addToCart">Edit</button>
+      <button onclick="deleteFromCart(this)" id="remove">Remove</button>
+    </td>
+  `;
+  cartTable.appendChild(row);
+
+  let cartCount = parseInt(cartBadge.innerText);
+  cartBadge.innerText = cartCount + 1;
+
+  updateCartTotal();
+}
+
+function deleteFromCart(btn) {
+  let row = btn.closest("tr");
+  row.remove();
+
+  let cartBadge = document.getElementById("cartBadge");
+  let cartCount = parseInt(cartBadge.innerText);
+  cartBadge.innerText = cartCount > 0 ? cartCount - 1 : 0;
+
+  updateCartTotal();
+}
+
+function toggleCart() {
+  let cartPanel = document.getElementById("cartPanel");
+  cartPanel.classList.toggle("open");
+}
+
+function updateCartTotal() {
+  let rows = document.querySelectorAll("#cartTable tr");
+  let total = 0;
+
+  rows.forEach((row) => {
+    let priceCell = row.children[2];
+    let value = parseFloat(priceCell.textContent.replace("₹", "")) || 0;
+    total += value;
+  });
+
+  document.getElementById("totalValue").innerText = `Total: ₹${total}`;
+}
+
+function editCartItem(btn) {
+  alert("Edit in cart not implemented. This is a placeholder.");
+}
+
+displayProducts();
