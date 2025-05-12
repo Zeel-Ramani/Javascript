@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>COVID-19 Data by Date</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #controls {
+      text-align: center;
+      margin: 20px 0;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>COVID-19 Data by Date</h1>
+  <div id="controls">
+    <input type="date" id="dateInput" />
+    <button onclick="fetchData()">Get Data</button>
+  </div>
+  <div id="results"></div>
+
+  <script>
+    async function fetchData() {
+      const date = document.getElementById("dateInput").value;
+      const results = document.getElementById("results");
+      results.innerHTML = "";
+
+      if (!date) {
+        alert("Please select a date");
+        return;
+      }
+
+      const url = `https://api.rootnet.in/covid19-in/stats/history`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (!data || data.length === 0) {
+          results.innerHTML = "<p>No data found for selected date.</p>";
+          return;
+        }
+
+        const covid = data[data.length - 1];
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>Date: ${date}</h3>
+          <p><strong>Confirmed:</strong> ${covid.Cases}</p>
+          <p><strong>Deaths:</strong> ${covid.Deaths}</p>
+          <p><strong>Recovered:</strong> ${covid.Recovered}</p>
+        `;
+        results.appendChild(card);
+      } catch (error) {
+        console.error(error);
+        results.innerHTML = "<p>Error fetching data. Try again later.</p>";
+      }
+    }
+  </script>
+</body>
+</html>

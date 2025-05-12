@@ -512,107 +512,152 @@
 //   displayProducts();
   
 // Utility functions for working with localStorage
-function getProducts() {
-  const products = localStorage.getItem('products');
-  return products ? JSON.parse(products) : [];
-}
+// function getProducts() {
+//   const products = localStorage.getItem('products');
+//   return products ? JSON.parse(products) : [];
+// }
 
-function saveProducts(products) {
-  localStorage.setItem('products', JSON.stringify(products));
-}
+// function saveProducts(products) {
+//   localStorage.setItem('products', JSON.stringify(products));
+// }
 
-// Function to add a new product
-function addProduct() {
-  const nameInput = document.getElementById('productName');
-  const priceInput = document.getElementById('productPrice');
-  const name = nameInput.value.trim();
-  const price = priceInput.value.trim();
+// // Function to add a new product
+// function addProduct() {
+//   const nameInput = document.getElementById('productName');
+//   const priceInput = document.getElementById('productPrice');
+//   const name = nameInput.value.trim();
+//   const price = priceInput.value.trim();
 
-  if (!name || !price) {
-    alert('Please enter both a product name and price.');
-    return;
-  }
+//   if (!name || !price) {
+//     alert('Please enter both a product name and price.');
+//     return;
+//   }
 
-  const products = getProducts();
-  const newProduct = { name, price };
-  products.push(newProduct);
-  saveProducts(products);
-  displayProducts();
+//   const products = getProducts();
+//   const newProduct = { name, price };
+//   products.push(newProduct);
+//   saveProducts(products);
+//   displayProducts();
 
-  // Clear input fields
-  nameInput.value = '';
-  priceInput.value = '';
-}
+//   // Clear input fields
+//   nameInput.value = '';
+//   priceInput.value = '';
+// }
 
-// Function to display all products
-function displayProducts() {
-  const products = getProducts();
-  const container = document.getElementById('productList');
-  container.innerHTML = '';
+// // Function to display all products
+// function displayProducts() {
+//   const products = getProducts();
+//   const container = document.getElementById('productList');
+//   container.innerHTML = '';
 
-  products.forEach((product, index) => {
-    const productCard = document.createElement('div');
-    productCard.className = 'product-card';
-    productCard.innerHTML = `
-      <h3>${product.name}</h3>
-      <p>Price: $${product.price}</p>
-      <button onclick="openEditModal(${index})">Edit</button>
-      <button onclick="deleteProduct(${index})">Delete</button>
-    `;
-    container.appendChild(productCard);
-  });
-}
+//   products.forEach((product, index) => {
+//     const productCard = document.createElement('div');
+//     productCard.className = 'product-card';
+//     productCard.innerHTML = `
+//       <h3>${product.name}</h3>
+//       <p>Price: $${product.price}</p>
+//       <button onclick="openEditModal(${index})">Edit</button>
+//       <button onclick="deleteProduct(${index})">Delete</button>
+//     `;
+//     container.appendChild(productCard);
+//   });
+// }
 
-// Function to open the edit modal
-let editIndex = -1;
-function openEditModal(index) {
-  const product = getProducts()[index];
-  document.getElementById('editName').value = product.name;
-  document.getElementById('editPrice').value = product.price;
-  document.getElementById('editModal').style.display = 'block';
-  editIndex = index;
-}
+// // Function to open the edit modal
+// let editIndex = -1;
+// function openEditModal(index) {
+//   const product = getProducts()[index];
+//   document.getElementById('editName').value = product.name;
+//   document.getElementById('editPrice').value = product.price;
+//   document.getElementById('editModal').style.display = 'block';
+//   editIndex = index;
+// }
 
-// Function to close the edit modal
-function closeModal() {
-  document.getElementById('editModal').style.display = 'none';
-  editIndex = -1;
-}
+// // Function to close the edit modal
+// function closeModal() {
+//   document.getElementById('editModal').style.display = 'none';
+//   editIndex = -1;
+// }
 
-// Function to save the edited product
-function saveEditedProduct() {
-  const name = document.getElementById('editName').value.trim();
-  const price = document.getElementById('editPrice').value.trim();
+// // Function to save the edited product
+// function saveEditedProduct() {
+//   const name = document.getElementById('editName').value.trim();
+//   const price = document.getElementById('editPrice').value.trim();
 
-  if (!name || !price) {
-    alert('Please enter both product name and price.');
-    return;
-  }
+//   if (!name || !price) {
+//     alert('Please enter both product name and price.');
+//     return;
+//   }
 
-  const products = getProducts();
-  products[editIndex] = { name, price };
-  saveProducts(products);
-  displayProducts();
-  closeModal();
-}
+//   const products = getProducts();
+//   products[editIndex] = { name, price };
+//   saveProducts(products);
+//   displayProducts();
+//   closeModal();
+// }
 
-// Function to delete a product
-function deleteProduct(index) {
-  const products = getProducts();
-  if (confirm('Are you sure you want to delete this product?')) {
-    products.splice(index, 1);
-    saveProducts(products);
-    displayProducts();
-  }
-}
+// // Function to delete a product
+// function deleteProduct(index) {
+//   const products = getProducts();
+//   if (confirm('Are you sure you want to delete this product?')) {
+//     products.splice(index, 1);
+//     saveProducts(products);
+//     displayProducts();
+//   }
+// }
 
-// Display the products on page load
-window.onload = displayProducts;
+// // Display the products on page load
+// window.onload = displayProducts;
 
-// Close the modal if clicked outside
-window.onclick = function(event) {
-  const modal = document.getElementById('editModal');
-  if (event.target === modal) {
-    closeModal();
-  }
-};
+// // Close the modal if clicked outside
+// window.onclick = function(event) {
+//   const modal = document.getElementById('editModal');
+//   if (event.target === modal) {
+//     closeModal();
+//   }
+// };
+
+
+const countrySelect = document.getElementById('countrySelect');
+    const countryDataDiv = document.getElementById('countryData');
+
+    // Fetch list of countries and populate dropdown
+    async function populateCountries() {
+      const res = await fetch('https://disease.sh/v3/covid-19/countries');
+      const countries = await res.json();
+
+      countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.country;
+        option.textContent = country.country;
+        countrySelect.appendChild(option);
+      });
+    }
+
+    // Fetch and display COVID data for selected country
+    async function fetchCountryData(country) {
+      const url = country === 'worldwide'
+        ? 'https://disease.sh/v3/covid-19/all'
+        : `https://disease.sh/v3/covid-19/countries/${country}`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      countryDataDiv.innerHTML = `
+        <h2>${country === 'worldwide' ? '🌍 Worldwide' : '🌐 ' + data.country}</h2>
+        <h2>Total Cases: ${data.cases.toLocaleString()}</h2>
+        <h2>Deaths: ${data.deaths.toLocaleString()}</h2>
+        <h2>Recovered: ${data.recovered.toLocaleString()}</h2>
+      `;
+    }
+
+    // Event listener
+    countrySelect.addEventListener('change', (e) => {
+      fetchCountryData(e.target.value);
+    });
+
+    // Initialize
+    (async () => {
+      await populateCountries();
+      fetchCountryData('worldwide');
+    })();

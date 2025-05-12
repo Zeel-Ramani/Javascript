@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #2b5876, #4e4376); /* Premium background */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  height: 85vh;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.4);
+  background: #fff;
+}
+
+.left {
+  flex: 1;
+  background: linear-gradient(to bottom right, #1c92d2, #f2fcfe);
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.weather-icon {
+  width: 120px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.2));
+}
+
+.left h1 {
+  font-size: 4.2rem;
+  font-family: 'Luckiest Guy', cursive;
+  color: #ffffff;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
+}
+
+.left p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  letter-spacing: 1px;
+}
+
+.right {
+  flex: 1.6;
+  padding: 50px 40px;
+  background: #f7f9fc;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+#city {
+  width: 100%;
+  padding: 18px 22px;
+  border: 2px solid #00bcd4;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+  color: #000;
+  box-shadow: 0 5px 12px rgba(0, 188, 212, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+#city:focus {
+  border-color: #0288d1;
+  box-shadow: 0 8px 18px rgba(2, 136, 209, 0.3);
+  outline: none;
+  background: #ffffff;
+}
+
+#city::placeholder {
+  color: #333;
+}
+
+#weather {
+  background: url('https://myradar.com/static/background-a089d87ba11e1a4c45a8efa960b86092.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  padding: 40px 30px;
+  width: 100%;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+  font-size: 1.4rem;
+  line-height: 2.4;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+}
