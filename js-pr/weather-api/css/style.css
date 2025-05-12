@@ -6,11 +6,12 @@
 }
 
 body {
-  background: linear-gradient(to right, #2b5876, #4e4376); /* Premium background */
+  background-image: url(../img/Weather\ use\ RESIZED.jpg);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
 }
 
 .container {
@@ -26,7 +27,7 @@ body {
 
 .left {
   flex: 1;
-  background: linear-gradient(to bottom right, #1c92d2, #f2fcfe);
+  background-image: url(../img/Weather\ use\ RESIZED.jpg);
   color: #fff;
   padding: 40px 20px;
   display: flex;
