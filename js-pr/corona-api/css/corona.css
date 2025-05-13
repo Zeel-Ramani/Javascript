@@ -1,74 +1,55 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
+    background-image: url(../img/image_1456843452.webp);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
-    width: 100%;
     padding: 20px;
-    background-image: url(../img/image_1456843452.webp);
     background-size: cover;
 }
 
-
 h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #e74c3c; /* Red for COVID */
+    font-size: 36px;
+    color: #dcdcdc;
     margin-bottom: 20px;
+    font-weight: 700;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
-
 
 div {
-    text-align: center;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Input Date and Search Button */
 input[type="date"] {
-    padding: 12px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    border: 2px solid #3498db;
-    outline: none;
-    width: 250px;
-    margin-right: 10px;
-    background-color: #fff;
-    transition: all 0.3s ease;
-}
-
-input[type="date"]:focus {
-    border-color: #1abc9c;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
 button {
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    background-color: #e74c3c; /* Red for COVID */
-    border: none;
+    padding: 10px 20px;
+    background-color: #ff4c4c;
     color: white;
-    border-radius: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-left: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #c0392b;
+    background-color: #e63b3b;
 }
-
 
 #showModel {
     display: grid;
@@ -81,75 +62,52 @@ button:hover {
     margin: 0 auto;
 }
 
-
+/* Card Design */
 .card {
-    background-color: #ffffff;
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    background: #fefefe;
+    border: 1px solid #ddd;
+    border-left: 5px solid #ff4c4c;
     border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 15px;
-    width: 80%;
-    max-width: 400px;
-    position: relative;
-    background: linear-gradient(135deg, #ffffff, #f1f3f4);
+    padding: 16px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
-
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
 }
 
 .card h3 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 20px;
+    border-bottom: 1px solid black;
 }
 
 .card p {
-    font-size: 1.2rem;
+    margin: 4px 0;
+    font-size: 16px;
     color: #555;
-    margin: 8px 0;
 }
 
-.card .confirmed {
-    color: #e74c3c; 
-    font-weight: bold;
+.card p strong {
+    color: #000;
 }
 
-.card .recovered {
-    color: #2ecc71;
-    font-weight: bold;
-}
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
 
-.card .deaths {
-    color: #f39c12;
-    font-weight: bold;
-}
+    button {
+        margin-top: 10px;
+        width: 100%;
+    }
 
-
-#noData {
-    font-size: 1.4rem;
-    color: #e74c3c;
-    margin-top: 20px;
-}
-
-
-.card .icon {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.card .icon.confirmed {
-    color: #e74c3c;
-}
-
-.card .icon.recovered {
-    color: #2ecc71;
-}
-
-.card .icon.deaths {
-    color: #f39c12;
+    input[type="date"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
