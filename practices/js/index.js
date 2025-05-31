@@ -621,7 +621,6 @@
 const countrySelect = document.getElementById('countrySelect');
     const countryDataDiv = document.getElementById('countryData');
 
-    // Fetch list of countries and populate dropdown
     async function populateCountries() {
       const res = await fetch('https://disease.sh/v3/covid-19/countries');
       const countries = await res.json();
@@ -634,7 +633,6 @@ const countrySelect = document.getElementById('countrySelect');
       });
     }
 
-    // Fetch and display COVID data for selected country
     async function fetchCountryData(country) {
       const url = country === 'worldwide'
         ? 'https://disease.sh/v3/covid-19/all'
@@ -644,19 +642,17 @@ const countrySelect = document.getElementById('countrySelect');
       const data = await res.json();
 
       countryDataDiv.innerHTML = `
-        <h2>${country === 'worldwide' ? '🌍 Worldwide' : '🌐 ' + data.country}</h2>
+        <h2>${country === 'worldwide' ? '🌍 Worldwide' : '🌐' + data.country}</h2>
         <h2>Total Cases: ${data.cases.toLocaleString()}</h2>
         <h2>Deaths: ${data.deaths.toLocaleString()}</h2>
         <h2>Recovered: ${data.recovered.toLocaleString()}</h2>
       `;
     }
 
-    // Event listener
     countrySelect.addEventListener('change', (e) => {
       fetchCountryData(e.target.value);
     });
 
-    // Initialize
     (async () => {
       await populateCountries();
       fetchCountryData('worldwide');

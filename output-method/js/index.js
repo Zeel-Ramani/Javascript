@@ -11,7 +11,7 @@ alert('alert...')
     // DOCUMENT
 
 document.write("red & white ")
-document.write(8 + 9);
+document.write(25 + 35);
 document.getElementById("test").innerText = "ZEEL RAMANI";
 
 function myFunction(){
