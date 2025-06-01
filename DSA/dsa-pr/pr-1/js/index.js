@@ -62,24 +62,24 @@
 
 // 3. Write a JavaScript Program 2-D array print and also print its's square of every element.
 
-let arr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-];
+// let arr = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ];
 
-let squarearray = (arr) => {
-    let res = [];
-    for (let i = 0; i < arr[0].length; i++) {
-        res[i] = [];
-        for (let j = 0; j < arr.length; j++) {
-            res[i][j] = arr[j][i];
-        }
-    }
-    return res;
-}
+// let squarearray = (arr) => {
+//     let res = [];
+//     for (let i = 0; i < arr[0].length; i++) {
+//         res[i] = [];
+//         for (let j = 0; j < arr.length; j++) {
+//             res[i][j] = arr[j][i];
+//         }
+//     }
+//     return res;
+// }
 
-console.log(squarearray(arr));
+// console.log(squarearray(arr));
 
 // output: [1 ,4, 7],
 //         [2, 5, 8],
