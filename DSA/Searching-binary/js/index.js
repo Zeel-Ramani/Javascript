@@ -60,3 +60,15 @@
 // } else {
 //   console.log("No pair found that adds up to the target value.");
 // }
+
+
+// rotated sorted arrays
+
+let data = [4, 5, 6, 7, 0, 1, 2];
+
+function rotatedsearching(arr, target){
+    let low = 0;
+    let high = arr.length - 1;
+
+    while(low <= high)
+}
