@@ -122,7 +122,7 @@
 //     }
 
 //     display() {
-//         console.log(this.items.join(" <- "));
+//         console.log(this.items.join(" <= "));
 //     }
 // }
 
@@ -130,9 +130,10 @@
 // stack.push(10);
 // stack.push(20);
 // stack.push(30);
+// stack.push(40);
 // stack.display();
 
-// output = 10 <- 20 <- 30
+// output = 10 <= 20 <= 30 <= 40
 
 
 // 4. WAP to implement binary Search using JavaScript with DSA?
@@ -201,7 +202,6 @@
 
 //     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 // }
-
 
 // let sortedArray = mergeSort(arr);
 // console.log("Original Array:", arr);
