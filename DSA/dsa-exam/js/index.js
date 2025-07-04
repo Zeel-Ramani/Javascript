@@ -1,0 +1,1 @@
+// WAP to implements Create singly Linked list, adding a new Elements, and Delete node from singly linked list.
