@@ -75,7 +75,7 @@
 //                 minin = j;
 //             }
 //         }
-//         if (minin !== n) {
+//         if (minin !== i) {
 //             [arr[i], arr[minin]] = [arr[minin], arr[i]];
 //         }
 //     }
