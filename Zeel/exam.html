@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="border py-2 px-3">
+                <div class="d-flex justify-content-between align-items-center">
+                <h2 class="py-2">Awesome Quiz Appliction</h2>
+                <div class="box1 bg-dark-subtle p-2" id="Time">
+                    Time Left
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="box pt-5">
+            <h2 class="pb-2">1. what does html stand for!</h2>
+            <div class="alert alert-primary" role="alert" id="aus">
+                Hyper text preprocessor
+            </div>
+            <div class="alert alert-primary" role="alert" id="aus1">
+                Hyper text markup language
+            </div>
+            <div class="alert alert-primary" role="alert" id="aus2">
+                Hyper text multipal language
+            </div>
+            <div class="alert alert-primary" role="alert" id="aus3">
+                Hyper tool multi language
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="pb-2">1 to 5 question</p>
+                <button onclick="next()" class="btn btn-primary">Next Que</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/exam.js"></script>
+</body>
+</html>
